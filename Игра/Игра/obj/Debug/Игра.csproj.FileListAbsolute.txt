@@ -1,0 +1,12 @@
+C:\Users\vital\Desktop\C#\Игра\Игра\bin\Debug\Игра.exe.config
+C:\Users\vital\Desktop\C#\Игра\Игра\bin\Debug\Игра.exe
+C:\Users\vital\Desktop\C#\Игра\Игра\bin\Debug\Игра.pdb
+C:\Users\vital\Desktop\C#\Игра\Игра\obj\Debug\Игра.csprojAssemblyReference.cache
+C:\Users\vital\Desktop\C#\Игра\Игра\obj\Debug\Игра.Form1.resources
+C:\Users\vital\Desktop\C#\Игра\Игра\obj\Debug\Игра.Properties.Resources.resources
+C:\Users\vital\Desktop\C#\Игра\Игра\obj\Debug\Игра.csproj.GenerateResource.cache
+C:\Users\vital\Desktop\C#\Игра\Игра\obj\Debug\Игра.csproj.CoreCompileInputs.cache
+C:\Users\vital\Desktop\C#\Игра\Игра\obj\Debug\Игра.exe
+C:\Users\vital\Desktop\C#\Игра\Игра\obj\Debug\Игра.pdb
+C:\Users\vital\Desktop\C#\Игра\Игра\obj\Debug\Игра.Resource2.resources
+C:\Users\vital\Desktop\C#\Игра\Игра\obj\Debug\Игра.Form2.resources
