@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,15 +15,17 @@ namespace Игра
 {
     public partial class Form1 : Form
     {
+        Graphics gr;
+        Thread shooting;
+        Stack<Point> grenades = new Stack<Point>();
+        Image dot;
+        Player player = new Player();
+
         void Run()
         {
            
         }
         
-        void Shoot()
-        {
-
-        }
 
         public Form1(Size size)
         {
@@ -29,13 +34,14 @@ namespace Игра
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;
         }
-
-        Enemy e = new Enemy();
+        
 
         public Form1(Form2 f)
         {
             InitializeComponent();
         }
+
+
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -43,6 +49,29 @@ namespace Игра
             {
                 this.Close();
             }
+
+            if (e.KeyCode == Keys.Up)
+            {
+                //player.position = new Point(player.position.X, player.position.Y + 2);
+                player1.Location = new Point(player1.Top + 10, player1.Left); //вопрос
+            }
+
+            if (e.KeyCode == Keys.Down)
+            {
+                player.position = new Point(player.position.X, player.position.Y + 2);
+            }
+
+            if (e.KeyCode == Keys.Left)
+            {
+                player.position = new Point(player.position.X, player.position.Y + 2);
+            }
+
+            if (e.KeyCode == Keys.Right)
+            {
+                player.position = new Point(player.position.X, player.position.Y + 2);
+            }
+            
+
         }
 
         private void Exit1_Click(object sender, EventArgs e)
@@ -63,13 +92,10 @@ namespace Игра
     public class Player
     {
         public Point position;
-        public int Direction = 0, prevDirection = 0;
-        public Image PlayerImage;
-        int type = 0;
-        public Keys keyUp;
-        public Keys keyDown;
-        public Keys keyLeft;
-        public Keys keyRight;
-        public Keys keyFire;
+        public Image player;
+        public Player()
+        {
+            player = Image.FromFile(Directory.GetCurrentDirectory() + @"\walk-13.png");
+        }
     }
 }

@@ -29,35 +29,37 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.Player = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.player1 = new System.Windows.Forms.PictureBox();
             this.Exit1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Exit1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Player
-            // 
-            this.Player.BackColor = System.Drawing.Color.Transparent;
-            this.Player.Image = global::Игра.Resource2.walk_3;
-            this.Player.Location = new System.Drawing.Point(58, 259);
-            this.Player.Name = "Player";
-            this.Player.Size = new System.Drawing.Size(148, 163);
-            this.Player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Player.TabIndex = 0;
-            this.Player.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.player1);
             this.panel1.Controls.Add(this.Exit1);
-            this.panel1.Controls.Add(this.Player);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(923, 449);
             this.panel1.TabIndex = 1;
+            // 
+            // player1
+            // 
+            this.player1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.player1.Image = global::Игра.Resource2.walk_3;
+            this.player1.Location = new System.Drawing.Point(107, 196);
+            this.player1.Name = "player1";
+            this.player1.Size = new System.Drawing.Size(157, 183);
+            this.player1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.player1.TabIndex = 2;
+            this.player1.TabStop = false;
             // 
             // Exit1
             // 
@@ -87,18 +89,17 @@
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
-            ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.player1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Exit1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox Exit1;
+        private System.Windows.Forms.PictureBox player1;
     }
 }
 
