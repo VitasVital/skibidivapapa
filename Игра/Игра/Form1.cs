@@ -89,10 +89,6 @@ namespace Игра
         }
 
         
-        public void Jump()
-        {
-            timer2.Enabled = true;
-        }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -104,7 +100,7 @@ namespace Игра
             if (e.KeyCode == Keys.Up)
             {
                 timer1.Enabled = false;
-                Jump();
+                timer2.Enabled = true;
                 timer1.Enabled = true;
             }
 
