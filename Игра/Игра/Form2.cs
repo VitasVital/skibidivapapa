@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+
 
 namespace Игра
 {
@@ -16,7 +18,10 @@ namespace Игра
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
+            InitializeComponent();
+            SoundPlayer sndPlayer = new SoundPlayer(@"C:\Users\vital\Desktop\C#\Игра\Игра\Cyberpunk City\warped city files\MinecraftMain.wav");
+            sndPlayer.Play();
         }
         
         
