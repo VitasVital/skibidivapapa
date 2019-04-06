@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
@@ -20,7 +23,7 @@ namespace Игра
             this.FormBorderStyle = FormBorderStyle.None;
             //this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
-            SoundPlayer sndPlayer = new SoundPlayer(@"C:\Users\vital\Desktop\C#\Игра\Игра\Cyberpunk City\warped city files\MinecraftMain.wav");
+            SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\MinecraftMain.wav");
             sndPlayer.Play();
         }
         
@@ -31,11 +34,7 @@ namespace Игра
             Form1 f1 = new Form1(this.Size);
             f1.Show();
         }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Exit2_Click(object sender, EventArgs e)
         {

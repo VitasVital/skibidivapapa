@@ -26,23 +26,24 @@ namespace Игра
         Drone drone = new Drone();
         Vehicles vehicle = new Vehicles();
         Point pos = new Point(60, 60);
-        Image back;
-        Image dot;
+        //Image back;
+        Image shot;
 
         public Form1(Size size)
         {
             InitializeComponent();
-            //back = Image.FromFile(@"C:\Users\vital\Desktop\C#\Игра\Игра\Cyberpunk City\warped city files\ENVIRONMENT\background\buildings-bg.png");
+            //back = Image.FromFile(Directory.GetCurrentDirectory() + @"\sity.jpg");
             this.FormBorderStyle = FormBorderStyle.None;
             //this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;
             gr = panel1.CreateGraphics();
             player.position = new Point(60, 320);
-            drone.position = new Point(50, 50);
-            vehicle.position = new Point(700, 320);
+            drone.position = new Point(700, 150);
+            vehicle.position = new Point(1500, 320);
             shooting = new Thread(shoot);
-            dot = Image.FromFile(@"C:\Users\vital\Desktop\C#\Игра\Игра\Cyberpunk City\warped city files\SPRITES\misc\shot\shot-2.png");
-            
+            shot = Image.FromFile(Directory.GetCurrentDirectory() + @"\shot\shot-2.png");
+            SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\MinecraftMain.wav");
+            sndPlayer.Play();
         }
 
 
@@ -50,13 +51,12 @@ namespace Игра
         {
             InitializeComponent();
         }
-
-        int currentSprite = 0;
+        
         
 
-    private void shoot(object playerIn)
+        private void shoot(object playerIn)
         {
-            Player player = (Player)playerIn;
+            /*Player player = (Player)playerIn;
             int currentdirection = player.Direction;
             Point f = new Point(0, 0);
             try
@@ -78,19 +78,14 @@ namespace Игра
                         case 3: { f.X += 10; break; }
 
                     }
-                    /*foreach (var a in walls)
-                    {
-                        if (Math.Sqrt((a.position.X + a.pic.Width / 2 - f.X) * (a.position.X + a.pic.Width / 2 - f.X) + (a.position.Y + a.pic.Height / 2 - f.Y) * (a.position.Y + a.pic.Height / 2 - f.Y)) < a.pic.Width / 2 + 10)
-                        {
-                            a.alive = false;
-                        }
-                    }*/
-                    gr.DrawImage(dot, f);
+                    gr.DrawImage(shot, f);
                     Thread.Sleep(50);
                 }
                 catch { }
             }
-            grenades.Push(new Point(-5, -5));
+            grenades.Push(new Point(-5, -5));*/
+
+
         }
 
         
@@ -140,8 +135,6 @@ namespace Игра
         public void timer1_Tick(object sender, EventArgs e)
         {
             gr.Clear(Color.Green);
-            //gr.DrawImage(back, new PointF(0, 0));
-            gr.DrawImage(drone.droneimg, drone.position);
             gr.DrawImage(player.imagesshoot[player.currentimage], player.position);
             time1 += timer1.Interval;
             if (time1 >= 50)
@@ -154,7 +147,7 @@ namespace Игра
         }
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
-            SoundPlayer piu = new SoundPlayer(@"C:\Users\vital\Desktop\C#\Игра\Игра\Cyberpunk City\warped city files\piu.wav");
+            SoundPlayer piu = new SoundPlayer(Directory.GetCurrentDirectory() + @"\piu.wav");
             piu.Play();
             shooting = new Thread(shoot);
             shooting.Start(player);
@@ -165,9 +158,7 @@ namespace Игра
         private void timer2_Tick(object sender, EventArgs e)
         {
             gr.Clear(Color.Green);
-            gr.DrawImage(drone.droneimg, drone.position);
             gr.DrawImage(player.jump, player.position);
-            //gr.DrawImage(drone.droneimg, drone.position);
             time2 += timer2.Interval;
             if (time2 >= 10 && visota == false)
             {
@@ -220,7 +211,7 @@ namespace Игра
             }
             if (vehicle.position.Y + 20 > player.position.Y && vehicle.position.Y - 20 < player.position.Y && vehicle.position.X + 20 > player.position.X && vehicle.position.X - 20 < player.position.X && udar == false)
             {
-                SoundPlayer uronchik = new SoundPlayer(@"C:\Users\vital\Desktop\C#\Игра\Игра\Cyberpunk City\warped city files\uron.wav");
+                SoundPlayer uronchik = new SoundPlayer(Directory.GetCurrentDirectory() + @"\uron.wav");
                 uronchik.Play();
                 udar = true;
                 HP.Width -= 100;
@@ -232,6 +223,34 @@ namespace Игра
                 this.Close();
             }
         }
+
+        int time4 = 0;
+        bool posit = false;
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            gr.DrawImage(drone.droneimg, drone.position);
+            time4 += timer4.Interval;
+            if (time4 >= 10)
+            {
+                time4 = 0;
+                if (drone.position.Y < 300 && posit == false)
+                {
+                    drone.position.Y += 3;
+                    if (drone.position.Y > 270)
+                    {
+                        posit = true;
+                    }
+                }
+                if (drone.position.Y > 100 && posit == true)
+                {
+                    drone.position.Y -= 3;
+                    if (drone.position.Y < 130)
+                    {
+                        posit = false;
+                    }
+                }
+            }
+        }
     }
 
     class Drone
@@ -241,8 +260,8 @@ namespace Игра
         public Image boomdrone;
         public Drone()
         {
-            droneimg = Image.FromFile(@"C:\Users\vital\Desktop\C#\Игра\Игра\Cyberpunk City\warped city files\SPRITES\misc\drone\drone_preview.gif");
-            boomdrone = Image.FromFile(@"C:\Users\vital\Desktop\C#\Игра\Игра\Cyberpunk City\warped city files\SPRITES\misc\enemy-explosion\enemy-explosion-3.png");
+            droneimg = Image.FromFile(Directory.GetCurrentDirectory() + @"\drone_preview.gif");
+            boomdrone = Image.FromFile(Directory.GetCurrentDirectory() + @"\enemy-explosion-3.png");
         }
     }
 
@@ -254,7 +273,7 @@ namespace Игра
         public int currentimage = 0;
         public Vehicles()
         {
-            spritesvehicles = Directory.GetFiles(@"C:\Users\vital\Desktop\C#\Игра\Игра\Cyberpunk City\warped city files\SPRITES\vehicles");
+            spritesvehicles = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\vehicles");
             for (int i = 0; i < imagesvehicles.Length; i++)
             {
                 imagesvehicles[i] = Image.FromFile(spritesvehicles[i]);
@@ -275,9 +294,9 @@ namespace Игра
         public int currentimage=0;
         public Player()
         {
-            jump = Image.FromFile(@"C:\Users\vital\Desktop\C#\Игра\Игра\Cyberpunk City\warped city files\SPRITES\player\jump\jump-4.png");
-            spritesrun = Directory.GetFiles(@"C:\Users\vital\Desktop\C#\Игра\Игра\Cyberpunk City\warped city files\SPRITES\player\run");
-            spritesshoot = Directory.GetFiles(@"C:\Users\vital\Desktop\C#\Игра\Игра\Cyberpunk City\warped city files\SPRITES\player\run-shoot");
+            jump = Image.FromFile(Directory.GetCurrentDirectory() + @"\jump-4.png");
+            spritesrun = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\run");
+            spritesshoot = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\run-shoot");
             for (int i = 0; i < imagesrun.Length; i++)
             {
                 imagesrun[i] = Image.FromFile(spritesrun[i]);
