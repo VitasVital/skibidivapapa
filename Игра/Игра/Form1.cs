@@ -26,13 +26,13 @@ namespace Игра
         Drone drone = new Drone();
         Vehicles vehicle = new Vehicles();
         Point pos = new Point(60, 60);
-        //Image back;
-        Image shot;
+        Shot shot = new Shot();
+        Image back;
 
         public Form1(Size size)
         {
             InitializeComponent();
-            //back = Image.FromFile(Directory.GetCurrentDirectory() + @"\sity.jpg");
+            back = Image.FromFile(Directory.GetCurrentDirectory() + @"\sity.jpg");
             this.FormBorderStyle = FormBorderStyle.None;
             //this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;
@@ -41,9 +41,6 @@ namespace Игра
             drone.position = new Point(700, 150);
             vehicle.position = new Point(1500, 320);
             shooting = new Thread(shoot);
-            shot = Image.FromFile(Directory.GetCurrentDirectory() + @"\shot\shot-2.png");
-            SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\MinecraftMain.wav");
-            sndPlayer.Play();
         }
 
 
@@ -101,12 +98,11 @@ namespace Игра
             {
                 timer1.Enabled = false;
                 timer2.Enabled = true;
-                timer1.Enabled = true;
             }
 
             if (e.KeyCode == Keys.Down)
             {
-                //player.position = new Point(player.position.X, player.position.Y + 5);
+
             }
 
             if (e.KeyCode == Keys.Left)
@@ -130,7 +126,6 @@ namespace Игра
         int time1 = 0;
         public void timer1_Tick(object sender, EventArgs e)
         {
-            gr.Clear(Color.Green);
             gr.DrawImage(player.imagesshoot[player.currentimage], player.position);
             time1 += timer1.Interval;
             if (time1 >= 50)
@@ -143,36 +138,50 @@ namespace Игра
         }
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
-            SoundPlayer piu = new SoundPlayer(Directory.GetCurrentDirectory() + @"\piu.wav");
-            piu.Play();
-            shooting = new Thread(shoot);
-            shooting.Start(player);
+            //SoundPlayer piu = new SoundPlayer(Directory.GetCurrentDirectory() + @"\piu.wav");
+            //piu.Play();
+            /*for (int i=0;i<20;i++)
+            {
+                if (shot[i].zaniat==false)
+                {
+                    shot[i].zaniat = true;
+                    break;
+                }
+            }*/
+            timer5.Enabled = true;
+            //shooting = new Thread(shoot);
         }
 
-        int time2 = 0;
+        int time2 = 0, v = 20;
         bool visota = false;
         private void timer2_Tick(object sender, EventArgs e)
         {
-            gr.Clear(Color.Green);
+            
             gr.DrawImage(player.jump, player.position);
             time2 += timer2.Interval;
-            if (time2 >= 10 && visota == false)
+            if (time2 >= 30 && visota == false)
             {
-                player.position.Y-=3;
+                v-=1;
+                player.position.Y-= v;
                 time2 = 0;
-                if (player.position.Y < 100)
+                if (player.position.Y < 150)
                 {
                     visota = true;
+                    v = 0;
                 }
             }
-            if (time2 >= 10 && visota == true)
+            if (time2 >= 30 && visota == true)
             {
-                player.position.Y+=3;
+                v+=1;
+                player.position.Y+=v;
                 time2 = 0;
                 if (player.position.Y > 320)
                 {
+                    player.position.Y = 320;
                     timer2.Enabled = false;
+                    timer1.Enabled = true;
                     visota = false;
+                    v = 20;
                 }
             }
         }
@@ -187,7 +196,7 @@ namespace Игра
             time3 += timer3.Interval;
             if (time3 >= 10 && viselzagran == false)
             {
-                vehicle.position.X -= 3;
+                vehicle.position.X -= 6;
                 time3 = 0;
                 if (vehicle.position.X < -500)
                 {
@@ -220,44 +229,174 @@ namespace Игра
             }
         }
 
+
+        int time5 = 0;
+        bool startshot = false;
+        bool popal = false;
+        int num = 0;
+        private void Timer5_Tick(object sender, EventArgs e)
+        {
+            if (startshot == false)
+            {
+                SoundPlayer piu = new SoundPlayer(Directory.GetCurrentDirectory() + @"\piu.wav");
+                piu.Play();
+                shot.position.X = player.position.X + 25;
+                shot.position.Y = player.position.Y + 25;
+                startshot = true;
+            }
+            if (drone.position.X + 50 > shot.position.X && drone.position.X< shot.position.X
+                && drone.position.Y + 50 > shot.position.Y && drone.position.Y < shot.position.Y 
+                && popal == false)
+            {
+                if (num == 0 && popal == false)
+                {
+                    popal = true;
+                    SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\popal.wav");
+                    popadanie.Play();
+                    num++;
+                }
+                if (num == 1 && popal == false)
+                {
+                    popal = true;
+                    SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\guchiyea.wav");
+                    popadanie.Play();
+                    num++;
+                }
+                if (num == 2 && popal == false)
+                {
+                    popal = true;
+                    SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\guchiuron.wav");
+                    popadanie.Play();
+                    num++;
+                }
+                if (num == 3 && popal == false)
+                {
+                    popal = true;
+                    SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\theovernight.wav");
+                    popadanie.Play();
+                    num++;
+                }
+                if (num == 4 && popal == false)
+                {
+                    popal = true;
+                    SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\youlikechalanges.wav");
+                    popadanie.Play();
+                    num++;
+                }
+                pictureBox2.Width -= 50;
+            }
+            gr.DrawImage(shot.pum, shot.position);
+            time5 += timer5.Interval;
+            if (time5 >= 10)
+            {
+                time5 = 0;
+                if (shot.position.X<1000)
+                {
+                    shot.position.X += 10;
+                }
+                else
+                {
+                    shot.position.X = -30;
+                    popal = false;
+                    startshot = false;
+                    timer5.Enabled = false;
+                }
+            }
+        }
+
+        int x = 0;
+        private void Timer6_Tick(object sender, EventArgs e)
+        {
+            gr.DrawImage(back, x, -300);
+            if (x > -800)
+            {
+                x--;
+            }
+        }
+
         int time4 = 0;
         bool posit = false;
+        bool alive = true;
         private void timer4_Tick(object sender, EventArgs e)
         {
-            gr.DrawImage(drone.droneimg, drone.position);
-            time4 += timer4.Interval;
-            if (time4 >= 10)
+            if (alive == true)
             {
-                time4 = 0;
-                if (drone.position.Y < 300 && posit == false)
+                gr.DrawImage(drone.droneimg, drone.position);
+                time4 += timer4.Interval;
+                if (time4 >= 10)
                 {
-                    drone.position.Y += 3;
-                    if (drone.position.Y > 270)
+                    time4 = 0;
+                    if (drone.position.Y < 300 && posit == false)
                     {
-                        posit = true;
+                        drone.position.Y += 3;
+                        if (drone.position.Y > 270)
+                        {
+                            posit = true;
+                        }
+                    }
+                    if (drone.position.Y > 100 && posit == true)
+                    {
+                        drone.position.Y -= 3;
+                        if (drone.position.Y < 130)
+                        {
+                            posit = false;
+                        }
                     }
                 }
-                if (drone.position.Y > 100 && posit == true)
+                if (pictureBox2.Width == 0)
                 {
-                    drone.position.Y -= 3;
-                    if (drone.position.Y < 130)
+                    alive = false;
+                }
+            }
+            if (alive == false && message == false)
+            {
+                time4 += timer4.Interval;
+                gr.DrawImage(drone.deaddrone[drone.currentimage], drone.position);
+                if (time4 >= 50)
+                {
+                    drone.currentimage++;
+                    if (drone.currentimage == 6)
                     {
-                        posit = false;
+                        SoundPlayer win = new SoundPlayer(Directory.GetCurrentDirectory() + @"\guchimuchi.wav");
+                        win.Play();
+                        message = true;
+                        MessageBox.Show("Вы пабидили)))");
+                        this.Close();
                     }
                 }
             }
         }
     }
 
+    class Shot
+    {
+        public Point position;
+        public Image pum;
+        public bool zaniat;
+        public DateTime timeshot;
+        public Shot()
+        {
+            pum = Image.FromFile(Directory.GetCurrentDirectory() + @"\shot\shot-2.png");
+            position.X = 200;
+            position.Y = 100;
+        }
+    }
     class Drone
     {
         public Point position;
         public Image droneimg;
         public Image boomdrone;
+        public string[] spritedeaddrone;
+        public Image[] deaddrone = new Image[6];
+        public int currentimage = 0;
         public Drone()
         {
             droneimg = Image.FromFile(Directory.GetCurrentDirectory() + @"\drone_preview.gif");
-            boomdrone = Image.FromFile(Directory.GetCurrentDirectory() + @"\enemy-explosion-3.png");
+            spritedeaddrone = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\enemy-explosion");
+            for (int i = 0; i < deaddrone.Length; i++)
+            {
+                deaddrone[i] = Image.FromFile(spritedeaddrone[i]);
+            }
         }
     }
 

@@ -40,6 +40,8 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.timer5 = new System.Windows.Forms.Timer(this.components);
+            this.timer6 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HP)).BeginInit();
@@ -127,7 +129,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 10;
+            this.timer1.Interval = 20;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // timer2
@@ -146,6 +148,17 @@
             this.timer4.Enabled = true;
             this.timer4.Interval = 10;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            // 
+            // timer5
+            // 
+            this.timer5.Interval = 10;
+            this.timer5.Tick += new System.EventHandler(this.Timer5_Tick);
+            // 
+            // timer6
+            // 
+            this.timer6.Enabled = true;
+            this.timer6.Interval = 30;
+            this.timer6.Tick += new System.EventHandler(this.Timer6_Tick);
             // 
             // Form1
             // 
@@ -183,6 +196,8 @@
         private System.Windows.Forms.Timer timer4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer5;
+        private System.Windows.Forms.Timer timer6;
     }
 }
 
