@@ -55,9 +55,9 @@
             this.PressEnter.BackColor = System.Drawing.Color.Transparent;
             this.PressEnter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PressEnter.Image = global::Игра.Resource2.press_enter_text;
-            this.PressEnter.Location = new System.Drawing.Point(0, 323);
+            this.PressEnter.Location = new System.Drawing.Point(0, 316);
             this.PressEnter.Name = "PressEnter";
-            this.PressEnter.Size = new System.Drawing.Size(883, 68);
+            this.PressEnter.Size = new System.Drawing.Size(883, 75);
             this.PressEnter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PressEnter.TabIndex = 1;
             this.PressEnter.TabStop = false;

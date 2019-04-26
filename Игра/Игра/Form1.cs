@@ -27,6 +27,7 @@ namespace Игра
         Vehicles vehicle = new Vehicles();
         Point pos = new Point(60, 60);
         Shot shot = new Shot();
+        Drshot drshot = new Drshot();
         Image back;
 
         public Form1(Size size)
@@ -243,6 +244,7 @@ namespace Игра
                 shot.position.X = player.position.X + 25;
                 shot.position.Y = player.position.Y + 25;
                 startshot = true;
+                popal = false;
             }
             if (drone.position.X + 50 > shot.position.X && drone.position.X< shot.position.X
                 && drone.position.Y + 50 > shot.position.Y && drone.position.Y < shot.position.Y 
@@ -254,6 +256,9 @@ namespace Игра
                     SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\popal.wav");
                     popadanie.Play();
                     num++;
+                    shot.position.X = -30;
+                    startshot = false;
+                    timer5.Enabled = false;
                 }
                 if (num == 1 && popal == false)
                 {
@@ -261,6 +266,9 @@ namespace Игра
                     SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\guchiyea.wav");
                     popadanie.Play();
                     num++;
+                    shot.position.X = -30;
+                    startshot = false;
+                    timer5.Enabled = false;
                 }
                 if (num == 2 && popal == false)
                 {
@@ -268,6 +276,9 @@ namespace Игра
                     SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\guchiuron.wav");
                     popadanie.Play();
                     num++;
+                    shot.position.X = -30;
+                    startshot = false;
+                    timer5.Enabled = false;
                 }
                 if (num == 3 && popal == false)
                 {
@@ -275,6 +286,9 @@ namespace Игра
                     SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\theovernight.wav");
                     popadanie.Play();
                     num++;
+                    shot.position.X = -30;
+                    startshot = false;
+                    timer5.Enabled = false;
                 }
                 if (num == 4 && popal == false)
                 {
@@ -282,6 +296,9 @@ namespace Игра
                     SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\youlikechalanges.wav");
                     popadanie.Play();
                     num++;
+                    shot.position.X = -30;
+                    startshot = false;
+                    timer5.Enabled = false;
                 }
                 pictureBox2.Width -= 50;
             }
@@ -290,7 +307,7 @@ namespace Игра
             if (time5 >= 10)
             {
                 time5 = 0;
-                if (shot.position.X<1000)
+                if (shot.position.X<1000 && popal == false)
                 {
                     shot.position.X += 10;
                 }
@@ -311,6 +328,56 @@ namespace Игра
             if (x > -800)
             {
                 x--;
+            }
+        }
+
+
+        int time7 = 0;
+        bool droneshot = false;
+        bool dronepopal = false;
+        private void Timer7_Tick(object sender, EventArgs e)
+        {
+            if (drone.position.Y < player.position.Y + 20 && drone.position.Y > player.position.Y - 20
+                && droneshot == false && visota == false)
+            {
+                SoundPlayer piu = new SoundPlayer(Directory.GetCurrentDirectory() + @"\tiau.wav");
+                piu.Play();
+                droneshot = true;
+                drshot.position.X = drone.position.X;
+                drshot.position.Y = drone.position.Y + 10;
+                droneshot = true;
+                dronepopal = false;
+            }
+            if (player.position.X + 50 > drshot.position.X && player.position.X < drshot.position.X
+                && player.position.Y + 50 > drshot.position.Y && player.position.Y < drshot.position.Y
+                && dronepopal == false)
+            {
+                if (dronepopal == false)
+                {
+                    dronepopal = true;
+                    SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\krik.wav");
+                    popadanie.Play();
+                    drshot.position.X = -30;
+                    droneshot = false;
+                }
+                HP.Width -= 50;
+            }
+            gr.DrawImage(drshot.pum, drshot.position);
+            time7 += timer7.Interval;
+            if (time7 >= 10)
+            {
+                time7 = 0;
+                if (drshot.position.X > 0 && droneshot == true)
+                {
+                    drshot.position.X -= 10;
+                }
+                else
+                {
+                    drshot.position.X = -30;
+                    dronepopal = false;
+                    droneshot = false;
+                    //timer7.Enabled = false;
+                }
             }
         }
 
@@ -379,6 +446,19 @@ namespace Игра
             pum = Image.FromFile(Directory.GetCurrentDirectory() + @"\shot\shot-2.png");
             position.X = 200;
             position.Y = 100;
+        }
+    }
+    class Drshot
+    {
+        public Point position;
+        public Image pum;
+        public bool zaniat;
+        public DateTime timeshot;
+        public Drshot()
+        {
+            pum = Image.FromFile(Directory.GetCurrentDirectory() + @"\shot-hit\shot-hit-1.png");
+            position.X = 1;
+            position.Y = -1;
         }
     }
     class Drone

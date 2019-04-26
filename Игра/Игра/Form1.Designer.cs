@@ -42,6 +42,7 @@
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.timer6 = new System.Windows.Forms.Timer(this.components);
+            this.timer7 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HP)).BeginInit();
@@ -160,6 +161,12 @@
             this.timer6.Interval = 30;
             this.timer6.Tick += new System.EventHandler(this.Timer6_Tick);
             // 
+            // timer7
+            // 
+            this.timer7.Enabled = true;
+            this.timer7.Interval = 10;
+            this.timer7.Tick += new System.EventHandler(this.Timer7_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,6 +205,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer5;
         private System.Windows.Forms.Timer timer6;
+        private System.Windows.Forms.Timer timer7;
     }
 }
 
