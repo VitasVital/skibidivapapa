@@ -54,7 +54,6 @@
             // PressEnter
             // 
             this.PressEnter.BackColor = System.Drawing.Color.Transparent;
-            this.PressEnter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PressEnter.Image = global::Игра.Resource2.press_enter_text;
             this.PressEnter.Location = new System.Drawing.Point(0, 316);
             this.PressEnter.Name = "PressEnter";
