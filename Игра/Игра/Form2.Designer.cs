@@ -49,6 +49,7 @@
             this.WarpedCity.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.WarpedCity.TabIndex = 0;
             this.WarpedCity.TabStop = false;
+            this.WarpedCity.Click += new System.EventHandler(this.WarpedCity_Click);
             // 
             // PressEnter
             // 

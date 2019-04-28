@@ -23,7 +23,7 @@ namespace Игра
             this.FormBorderStyle = FormBorderStyle.None;
             //this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
-            SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\MinecraftMain.wav");
+            SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\golosovanie.wav");
             sndPlayer.Play();
         }
         
@@ -52,6 +52,12 @@ namespace Игра
             {
                 this.Close();
             }
+        }
+
+        private void WarpedCity_Click(object sender, EventArgs e)
+        {
+            SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\golosovanie.wav");
+            sndPlayer.Play();
         }
     }
     
