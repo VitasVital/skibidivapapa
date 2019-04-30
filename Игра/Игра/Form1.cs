@@ -18,7 +18,6 @@ namespace Игра
     public partial class Form1 : Form
     {
         Graphics gr;
-        Thread shooting;
         Stack<Point> grenades = new Stack<Point>();
         string[] sprites = new string[9];
         Image[] images = new Image[9];
@@ -389,8 +388,6 @@ namespace Игра
     {
         public Point position;
         public Image pum;
-        public bool zaniat;
-        public DateTime timeshot;
         public Shot()
         {
             pum = Image.FromFile(Directory.GetCurrentDirectory() + @"\shot\shot-2.png");
@@ -402,8 +399,6 @@ namespace Игра
     {
         public Point position;
         public Image pum;
-        public bool zaniat;
-        public DateTime timeshot;
         public Drshot()
         {
             pum = Image.FromFile(Directory.GetCurrentDirectory() + @"\shot-hit\shot-hit-1.png");
@@ -415,7 +410,6 @@ namespace Игра
     {
         public Point position;
         public Image droneimg;
-        public Image boomdrone;
         public string[] spritedeaddrone;
         public Image[] deaddrone = new Image[6];
         public int currentimage = 0;
@@ -450,9 +444,7 @@ namespace Игра
     {
         public Point position;
         public int Direction = 0, prevDirection = 0;
-        public string [] spritesrun;
         public string[] spritesshoot;
-        public Image[] imagesrun = new Image[9];
         public Image[] imagesshoot = new Image[9];
         public Image player;
         public Image jump;
@@ -460,12 +452,7 @@ namespace Игра
         public Player()
         {
             jump = Image.FromFile(Directory.GetCurrentDirectory() + @"\jump-4.png");
-            spritesrun = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\run");
             spritesshoot = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\run-shoot");
-            for (int i = 0; i < imagesrun.Length; i++)
-            {
-                imagesrun[i] = Image.FromFile(spritesrun[i]);
-            }
             for (int i = 0; i < imagesshoot.Length; i++)
             {
                 imagesshoot[i] = Image.FromFile(spritesshoot[i]);
