@@ -98,112 +98,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="near-buildings-bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\buildings-bg.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\bg-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\run-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\run-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\run-3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\run-4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\run-5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\run-6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\run-7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\run-8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\run-preview.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-11.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-12.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-13.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-14.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-15.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-preview.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\credits-text.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\game-over.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\instructions.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\loading.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\press-enter-text.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\title-screen.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\walk-31.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\banner-arrow.png" />
