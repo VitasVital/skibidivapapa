@@ -130,24 +130,24 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 20;
+            this.timer1.Interval = 30;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // timer2
             // 
-            this.timer2.Interval = 10;
+            this.timer2.Interval = 30;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // timer3
             // 
             this.timer3.Enabled = true;
-            this.timer3.Interval = 10;
+            this.timer3.Interval = 30;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // timer4
             // 
             this.timer4.Enabled = true;
-            this.timer4.Interval = 10;
+            this.timer4.Interval = 30;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
             // timer5
@@ -158,7 +158,7 @@
             // timer6
             // 
             this.timer6.Enabled = true;
-            this.timer6.Interval = 30;
+            this.timer6.Interval = 40;
             this.timer6.Tick += new System.EventHandler(this.Timer6_Tick);
             // 
             // timer7

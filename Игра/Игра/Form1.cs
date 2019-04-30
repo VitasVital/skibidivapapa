@@ -41,7 +41,6 @@ namespace Игра
             player.position = new Point(60, 320);
             drone.position = new Point(700, 150);
             vehicle.position = new Point(1500, 320);
-            shooting = new Thread(shoot);
         }
 
 
@@ -51,43 +50,6 @@ namespace Игра
         }
         
         
-
-        private void shoot(object playerIn)
-        {
-            /*Player player = (Player)playerIn;
-            int currentdirection = player.Direction;
-            Point f = new Point(0, 0);
-            try
-            {
-                f = grenades.Pop();
-            }
-            catch { return; }
-            f.X = player.position.X + player.player.Width / 2 - 5;
-            f.Y = player.position.Y + player.player.Height / 2 - 5;
-            while (f.X > 0 && f.X < panel1.Width && f.Y > 0 && f.Y < panel1.Height)
-            {
-                try
-                {
-                    switch (currentdirection)
-                    {
-                        case 0: { f.Y -= 10; break; }
-                        case 1: { f.Y += 10; break; }
-                        case 2: { f.X -= 10; break; }
-                        case 3: { f.X += 10; break; }
-
-                    }
-                    gr.DrawImage(shot, f);
-                    Thread.Sleep(50);
-                }
-                catch { }
-            }
-            grenades.Push(new Point(-5, -5));*/
-
-
-        }
-
-        
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -139,18 +101,7 @@ namespace Игра
         }
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
-            //SoundPlayer piu = new SoundPlayer(Directory.GetCurrentDirectory() + @"\piu.wav");
-            //piu.Play();
-            /*for (int i=0;i<20;i++)
-            {
-                if (shot[i].zaniat==false)
-                {
-                    shot[i].zaniat = true;
-                    break;
-                }
-            }*/
             timer5.Enabled = true;
-            //shooting = new Thread(shoot);
         }
 
         int time2 = 0, v = 20;
@@ -197,7 +148,7 @@ namespace Игра
             time3 += timer3.Interval;
             if (time3 >= 10 && viselzagran == false)
             {
-                vehicle.position.X -= 6;
+                vehicle.position.X -= 10;
                 time3 = 0;
                 if (vehicle.position.X < -500)
                 {
@@ -215,7 +166,7 @@ namespace Игра
                 viselzagran = false;
                 udar = false;
             }
-            if (vehicle.position.Y + 20 > player.position.Y && vehicle.position.Y - 20 < player.position.Y && vehicle.position.X + 20 > player.position.X && vehicle.position.X - 20 < player.position.X && udar == false)
+            if (vehicle.position.Y + 20 > player.position.Y && vehicle.position.Y - 10 < player.position.Y && vehicle.position.X + 50 > player.position.X && vehicle.position.X - 40 < player.position.X && udar == false)
             {
                 SoundPlayer uronchik = new SoundPlayer(Directory.GetCurrentDirectory() + @"\uron.wav");
                 uronchik.Play();
@@ -376,7 +327,6 @@ namespace Игра
                     drshot.position.X = -30;
                     dronepopal = false;
                     droneshot = false;
-                    //timer7.Enabled = false;
                 }
             }
         }
