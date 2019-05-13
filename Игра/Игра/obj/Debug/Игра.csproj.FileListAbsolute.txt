@@ -22,3 +22,7 @@ C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Debug\Игра.Prope
 C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Debug\Игра.Resource2.resources
 C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Debug\Игра.csproj.GenerateResource.cache
 C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Debug\Игра.csproj.CoreCompileInputs.cache
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\bin\Debug\Игра.exe.manifest
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\bin\Debug\Игра.application
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Debug\Игра.exe.manifest
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Debug\Игра.application

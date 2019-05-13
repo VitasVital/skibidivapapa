@@ -1,0 +1,16 @@
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\bin\Release\Игра.exe.config
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\bin\Release\Игра.exe
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\bin\Release\Игра.pdb
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Release\Игра.csprojAssemblyReference.cache
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Release\Игра.Form1.resources
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Release\Игра.Form2.resources
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Release\Игра.Properties.Resources.resources
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Release\Игра.Resource2.resources
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Release\Игра.csproj.GenerateResource.cache
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Release\Игра.csproj.CoreCompileInputs.cache
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Release\Игра.exe
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Release\Игра.pdb
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\bin\Release\Игра.exe.manifest
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\bin\Release\Игра.application
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Release\Игра.exe.manifest
+C:\Users\vital\Desktop\C#\winformgame\Игра\Игра\obj\Release\Игра.application

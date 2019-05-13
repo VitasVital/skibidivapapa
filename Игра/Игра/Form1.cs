@@ -18,7 +18,6 @@ namespace Игра
     public partial class Form1 : Form
     {
         Graphics gr;
-        Stack<Point> grenades = new Stack<Point>();
         string[] sprites = new string[9];
         Image[] images = new Image[9];
         Player player = new Player();
@@ -60,11 +59,6 @@ namespace Игра
             {
                 timer1.Enabled = false;
                 timer2.Enabled = true;
-            }
-
-            if (e.KeyCode == Keys.Down)
-            {
-
             }
 
             if (e.KeyCode == Keys.Left)
@@ -167,8 +161,10 @@ namespace Игра
             }
             if (vehicle.position.Y + 20 > player.position.Y && vehicle.position.Y - 10 < player.position.Y && vehicle.position.X + 50 > player.position.X && vehicle.position.X - 40 < player.position.X && udar == false)
             {
-                SoundPlayer uronchik = new SoundPlayer(Directory.GetCurrentDirectory() + @"\uron.wav");
-                uronchik.Play();
+                System.Windows.Media.MediaPlayer backgroundMusic;
+                backgroundMusic = new System.Windows.Media.MediaPlayer();
+                backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\uron.wav"));
+                backgroundMusic.Play();
                 udar = true;
                 HP.Width -= 100;
             }
@@ -189,8 +185,10 @@ namespace Игра
         {
             if (startshot == false)
             {
-                SoundPlayer piu = new SoundPlayer(Directory.GetCurrentDirectory() + @"\piu.wav");
-                piu.Play();
+                System.Windows.Media.MediaPlayer backgroundMusic;
+                backgroundMusic = new System.Windows.Media.MediaPlayer();
+                backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\piu.wav"));
+                backgroundMusic.Play();
                 shot.position.X = player.position.X + 25;
                 shot.position.Y = player.position.Y + 25;
                 startshot = true;
@@ -203,8 +201,10 @@ namespace Игра
                 if (num == 0 && popal == false)
                 {
                     popal = true;
-                    SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\popal.wav");
-                    popadanie.Play();
+                    System.Windows.Media.MediaPlayer backgroundMusic;
+                    backgroundMusic = new System.Windows.Media.MediaPlayer();
+                    backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\popal.wav"));
+                    backgroundMusic.Play();
                     num++;
                     shot.position.X = -30;
                     startshot = false;
@@ -213,8 +213,10 @@ namespace Игра
                 if (num == 1 && popal == false)
                 {
                     popal = true;
-                    SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\guchiyea.wav");
-                    popadanie.Play();
+                    System.Windows.Media.MediaPlayer backgroundMusic;
+                    backgroundMusic = new System.Windows.Media.MediaPlayer();
+                    backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\guchiyea.wav"));
+                    backgroundMusic.Play();
                     num++;
                     shot.position.X = -30;
                     startshot = false;
@@ -223,8 +225,10 @@ namespace Игра
                 if (num == 2 && popal == false)
                 {
                     popal = true;
-                    SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\guchiuron.wav");
-                    popadanie.Play();
+                    System.Windows.Media.MediaPlayer backgroundMusic;
+                    backgroundMusic = new System.Windows.Media.MediaPlayer();
+                    backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\guchiuron.wav"));
+                    backgroundMusic.Play();
                     num++;
                     shot.position.X = -30;
                     startshot = false;
@@ -233,8 +237,10 @@ namespace Игра
                 if (num == 3 && popal == false)
                 {
                     popal = true;
-                    SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\theovernight.wav");
-                    popadanie.Play();
+                    System.Windows.Media.MediaPlayer backgroundMusic;
+                    backgroundMusic = new System.Windows.Media.MediaPlayer();
+                    backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\theovernight.wav"));
+                    backgroundMusic.Play();
                     num++;
                     shot.position.X = -30;
                     startshot = false;
@@ -243,8 +249,10 @@ namespace Игра
                 if (num == 4 && popal == false)
                 {
                     popal = true;
-                    SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\youlikechalanges.wav");
-                    popadanie.Play();
+                    System.Windows.Media.MediaPlayer backgroundMusic;
+                    backgroundMusic = new System.Windows.Media.MediaPlayer();
+                    backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\youlikechalanges.wav"));
+                    backgroundMusic.Play();
                     num++;
                     shot.position.X = -30;
                     startshot = false;
@@ -290,8 +298,10 @@ namespace Игра
             if (drone.position.Y < player.position.Y + 20 && drone.position.Y > player.position.Y - 20
                 && droneshot == false && visota == false)
             {
-                SoundPlayer piu = new SoundPlayer(Directory.GetCurrentDirectory() + @"\tiau.wav");
-                piu.Play();
+                System.Windows.Media.MediaPlayer backgroundMusic;
+                backgroundMusic = new System.Windows.Media.MediaPlayer();
+                backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\tiau.wav"));
+                backgroundMusic.Play();
                 droneshot = true;
                 drshot.position.X = drone.position.X;
                 drshot.position.Y = drone.position.Y + 10;
@@ -305,8 +315,10 @@ namespace Игра
                 if (dronepopal == false)
                 {
                     dronepopal = true;
-                    SoundPlayer popadanie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\krik.wav");
-                    popadanie.Play();
+                    System.Windows.Media.MediaPlayer backgroundMusic;
+                    backgroundMusic = new System.Windows.Media.MediaPlayer();
+                    backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\krik.wav"));
+                    backgroundMusic.Play();
                     drshot.position.X = -30;
                     droneshot = false;
                 }
@@ -373,8 +385,10 @@ namespace Игра
                     drone.currentimage++;
                     if (drone.currentimage == 6)
                     {
-                        SoundPlayer win = new SoundPlayer(Directory.GetCurrentDirectory() + @"\guchimuchi.wav");
-                        win.Play();
+                        System.Windows.Media.MediaPlayer backgroundMusic;
+                        backgroundMusic = new System.Windows.Media.MediaPlayer();
+                        backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\guchimuchi.wav"));
+                        backgroundMusic.Play();
                         message = true;
                         MessageBox.Show("Вы пабидили)))");
                         this.Close();

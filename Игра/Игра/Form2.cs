@@ -23,8 +23,8 @@ namespace Игра
             this.FormBorderStyle = FormBorderStyle.None;
             //this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
-            SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\golosovanie.wav");
-            sndPlayer.Play();
+            //SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\golosovanie.wav");
+            //sndPlayer.Play();
         }
         
         
