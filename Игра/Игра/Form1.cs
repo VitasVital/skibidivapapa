@@ -170,8 +170,14 @@ namespace Игра
             }
             if (HP.Width == 0 && message == false)
             {
+                System.Windows.Media.MediaPlayer backgroundMusic;
+                backgroundMusic = new System.Windows.Media.MediaPlayer();
+                backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\golos.wav"));
+                backgroundMusic.Play();
                 message = true;
                 MessageBox.Show("Вы погибли(((");
+                backgroundMusic.Stop();
+                backgroundMusic.Close();
                 this.Close();
             }
         }
@@ -390,7 +396,12 @@ namespace Игра
                         backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\guchimuchi.wav"));
                         backgroundMusic.Play();
                         message = true;
+                        backgroundMusic = new System.Windows.Media.MediaPlayer();
+                        backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\golos.wav"));
+                        backgroundMusic.Play();
                         MessageBox.Show("Вы пабидили)))");
+                        backgroundMusic.Stop();
+                        backgroundMusic.Close();
                         this.Close();
                     }
                 }
