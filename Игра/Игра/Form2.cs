@@ -23,14 +23,20 @@ namespace Игра
             this.FormBorderStyle = FormBorderStyle.None;
             //this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
-            //SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\golosovanie.wav");
-            //sndPlayer.Play();
+            SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\golosovanie.wav");
+            sndPlayer.Play();
+            /*System.Windows.Media.MediaPlayer backgroundMusic;
+            backgroundMusic = new System.Windows.Media.MediaPlayer();
+            backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\golosovanie.wav"));
+            backgroundMusic.Play();*/
         }
         
         
 
         private void PressEnter_Click(object sender, EventArgs e)
         {
+            SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\piu.wav");
+            sndPlayer.Play();
             Form1 f1 = new Form1(this.Size);
             f1.Show();
         }
@@ -45,11 +51,15 @@ namespace Игра
         {
             if (e.KeyCode == Keys.Enter)
             {
+                SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\piu.wav");
+                sndPlayer.Play();
                 Form1 f1 = new Form1(this.Size);
                 f1.Show();
             }
             if (e.KeyCode == Keys.Escape)
             {
+                SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\piu.wav");
+                sndPlayer.Play();
                 this.Close();
             }
         }
@@ -58,6 +68,10 @@ namespace Игра
         {
             SoundPlayer sndPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + @"\golosovanie.wav");
             sndPlayer.Play();
+            /*System.Windows.Media.MediaPlayer backgroundMusic;
+            backgroundMusic = new System.Windows.Media.MediaPlayer();
+            backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\golosovanie.wav"));
+            backgroundMusic.Play();*/
         }
     }
     
